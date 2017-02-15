@@ -54,3 +54,7 @@ DISTFILES += \
 
 RESOURCES += \
     resources.qrc
+
+TRANSLATIONS    = decentralised_pt.ts \
+                  decentralised_ru.ts \
+                  decentralised_de.ts

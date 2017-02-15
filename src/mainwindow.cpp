@@ -41,9 +41,9 @@ void MainWindow::show()
         settings.setValue("net/incomingPort", incomingPort);
     }
 
-    terminalWrite("Decentralised Core v1.0.0", "darkgreen");
+    terminalWrite(tr("Decentralised Core v1.0.0"), "darkgreen");
     client->Start();
-    terminalWrite(QString("Listening on local port %1 for incoming connections").arg(QString::number(incomingPort)), NULL);
+    terminalWrite(QString(tr("Listening on local port %1 for incoming connections")).arg(QString::number(incomingPort)), NULL);
 }
 
 void MainWindow::resizeEvent(QResizeEvent* event)
