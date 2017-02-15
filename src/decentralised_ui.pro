@@ -34,15 +34,18 @@ CONFIG += static
 SOURCES += main.cpp\
         mainwindow.cpp \
     logindialog.cpp \
-    aboutdialog.cpp
+    aboutdialog.cpp \
+    preferencesdialog.cpp
 
 HEADERS  += mainwindow.h \
     logindialog.h \
-    aboutdialog.h
+    aboutdialog.h \
+    preferencesdialog.h
 
 FORMS    += mainwindow.ui \
     logindialog.ui \
-    aboutdialog.ui
+    aboutdialog.ui \
+    preferencesdialog.ui
 
 RC_FILE = dc.rc
 

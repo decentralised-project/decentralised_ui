@@ -8,6 +8,7 @@
 #include <QTime>
 #include <logindialog.h>
 #include <aboutdialog.h>
+#include <preferencesdialog.h>
 #include <decentralised_p2p.h>
 #include <stdlib.h>
 
@@ -41,6 +42,10 @@ private slots:
 
     void on_connectionDropped();
 
+    void on_txtInput_returnPressed();
+
+    void on_actionPreferences_triggered();
+
 private:
 
     void terminalWrite(QString text, QString color);
@@ -48,6 +53,7 @@ private:
     Ui::MainWindow *ui;
     LoginDialog* login;
     AboutDialog* about;
+    PreferencesDialog* preferences;
     decentralised_p2p* client;
 };
 

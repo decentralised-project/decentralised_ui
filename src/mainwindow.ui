@@ -171,7 +171,7 @@ p
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit"/>
+           <widget class="QLineEdit" name="txtInput"/>
           </item>
          </layout>
         </item>
@@ -195,7 +195,6 @@ p
      <string>User</string>
     </property>
     <addaction name="actionLogin"/>
-    <addaction name="actionContacts"/>
     <addaction name="actionPreferences"/>
     <addaction name="separator"/>
     <addaction name="actionExit"/>

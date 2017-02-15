@@ -34,8 +34,16 @@ void MainWindow::show()
 
     QMainWindow::show();
 
+    int incomingPort = settings.value("net/incomingPort").toInt();
+    if(incomingPort == 0)
+    {
+        incomingPort = 6453;
+        settings.setValue("net/incomingPort", incomingPort);
+    }
+
     terminalWrite("Decentralised Core v1.0.0", "darkgreen");
-    terminalWrite("Checking for known peers ...", NULL);
+    client->Start();
+    terminalWrite(QString("Listening on local port %1 for incoming connections").arg(QString::number(incomingPort)), NULL);
 }
 
 void MainWindow::resizeEvent(QResizeEvent* event)
@@ -61,6 +69,12 @@ void MainWindow::on_actionAbout_Decentralised_triggered()
 {
     about = new AboutDialog(this);
     about->show();
+}
+
+void MainWindow::on_actionPreferences_triggered()
+{
+    preferences = new PreferencesDialog(this);
+    preferences->show();
 }
 
 void MainWindow::on_actionDecentralised_Website_triggered()
@@ -94,4 +108,10 @@ void MainWindow::terminalWrite(QString text, QString color)
     QString existing = terminal->text();
     terminal->setText(QString("%1<div style=\"color:%2;margin-bottom:5px;\">%3 %4</div>")
                       .arg(existing, color, timeStamp, text));
+}
+
+void MainWindow::on_txtInput_returnPressed()
+{
+    QLineEdit* input = this->findChild<QLineEdit*>("txtInput");
+    input->clear();
 }
