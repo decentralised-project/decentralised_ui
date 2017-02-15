@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/dc/images">
+        <file>icon-large.png</file>
+    </qresource>
+</RCC>
