@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    client = new decentralised_p2p();
+    client = NULL;
     QObject::connect(client, &decentralised_p2p::connectionEstablished,
                      this, &MainWindow::on_connectionEstablished);
     QObject::connect(client, &decentralised_p2p::dataReceived,
@@ -42,8 +42,10 @@ void MainWindow::show()
     }
 
     terminalWrite(tr("Decentralised Core v1.0.0"), "darkgreen");
+    client = new decentralised_p2p(0, incomingPort);
     client->Start();
-    terminalWrite(QString(tr("Listening on local port %1 for incoming connections")).arg(QString::number(incomingPort)), NULL);
+    terminalWrite(tr("Listening on local port %1 for incoming connections")
+                  .arg(QString::number(incomingPort)), NULL);
 }
 
 void MainWindow::resizeEvent(QResizeEvent* event)

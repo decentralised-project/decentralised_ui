@@ -69,12 +69,12 @@
           <rect>
            <x>10</x>
            <y>30</y>
-           <width>401</width>
+           <width>391</width>
            <height>20</height>
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color:#e5e5e5; </string>
+          <string notr="true">background-color:white; </string>
          </property>
          <property name="frameShape">
           <enum>QFrame::NoFrame</enum>
@@ -114,6 +114,32 @@
         <attribute name="title">
          <string>Network</string>
         </attribute>
+        <widget class="QLabel" name="label_6">
+         <property name="geometry">
+          <rect>
+           <x>11</x>
+           <y>11</y>
+           <width>161</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Incoming Port</string>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spinBox">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>30</y>
+           <width>111</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="maximum">
+          <number>65535</number>
+         </property>
+        </widget>
        </widget>
       </widget>
      </item>
