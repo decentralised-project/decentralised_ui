@@ -11,6 +11,7 @@
 #include <preferencesdialog.h>
 #include <decentralised_p2p.h>
 #include <stdlib.h>
+#include "settings.h"
 
 namespace Ui {
 class MainWindow;
@@ -36,25 +37,33 @@ private slots:
 
     void on_actionDecentralised_Website_triggered();
 
+    void on_txtInput_returnPressed();
+
+    void on_actionPreferences_triggered();
+
+
     void on_dataReceived(QByteArray data);
 
     void on_connectionEstablished();
 
     void on_connectionDropped();
 
-    void on_txtInput_returnPressed();
+    void on_connectionIncoming();
 
-    void on_actionPreferences_triggered();
+    void on_serverStarted(int port);
+
+    void on_serverError(QString message);
 
 private:
 
     void terminalWrite(QString text, QString color);
 
-    Ui::MainWindow *ui;
-    LoginDialog* login;
-    AboutDialog* about;
-    PreferencesDialog* preferences;
-    decentralised_p2p* client;
+    Ui::MainWindow *_ui;
+    LoginDialog* _login;
+    AboutDialog* _about;
+    PreferencesDialog* _preferences;
+    decentralised_p2p* _client;
+    settings _settings;
 };
 
 #endif // MAINWINDOW_H

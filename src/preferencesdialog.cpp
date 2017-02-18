@@ -3,14 +3,38 @@
 
 PreferencesDialog::PreferencesDialog(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::PreferencesDialog)
+    _ui(new Ui::PreferencesDialog)
 {
     this->setWindowFlags(this->windowFlags() & ~Qt::WindowContextHelpButtonHint);
-    ui->setupUi(this);
+    _ui->setupUi(this);
     this->setFixedSize(this->width(), this->height());
+
+    QString dataDir = _settings.getDataDirectory();
+    QLabel* txtDataDirectory = this->findChild<QLabel*>("txtDataDirectory");
+    txtDataDirectory->setText(dataDir);
+
+    QString lang = _settings.getLanguage();
+    QComboBox* drpLanguage = this->findChild<QComboBox*>("drpLanguage");
+    drpLanguage->setCurrentText(lang);
+
+    int incomingPort = _settings.getIncomingPort();
+    QSpinBox* txtIncomingPort = this->findChild<QSpinBox*>("txtIncomingPort");
+    txtIncomingPort->setValue(incomingPort);
 }
 
 PreferencesDialog::~PreferencesDialog()
 {
-    delete ui;
+    delete _ui;
+}
+
+void PreferencesDialog::on_buttonBox_accepted()
+{
+    QLabel* txtDataDirectory = this->findChild<QLabel*>("txtDataDirectory");
+    _settings.setDataDirectory(txtDataDirectory->text());
+
+    QSpinBox* txtIncomingPort = this->findChild<QSpinBox*>("txtIncomingPort");
+    _settings.setIncomingPort(txtIncomingPort->value());
+
+    QComboBox* drpLanguage = this->findChild<QComboBox*>("drpLanguage");
+    _settings.setLanguage(drpLanguage->currentText());
 }

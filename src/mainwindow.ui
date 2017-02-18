@@ -160,8 +160,14 @@ p
                 <property name="textFormat">
                  <enum>Qt::RichText</enum>
                 </property>
+                <property name="scaledContents">
+                 <bool>true</bool>
+                </property>
                 <property name="alignment">
                  <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
                 </property>
                 <property name="margin">
                  <number>5</number>

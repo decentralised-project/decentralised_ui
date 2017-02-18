@@ -37,12 +37,14 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     logindialog.cpp \
     aboutdialog.cpp \
-    preferencesdialog.cpp
+    preferencesdialog.cpp \
+    settings.cpp
 
 HEADERS  += mainwindow.h \
     logindialog.h \
     aboutdialog.h \
-    preferencesdialog.h
+    preferencesdialog.h \
+    settings.h
 
 FORMS    += mainwindow.ui \
     logindialog.ui \

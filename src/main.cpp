@@ -22,8 +22,8 @@ int main(int argc, char *argv[])
 
     QNetworkConfigurationManager manager;
     if (manager.capabilities() & QNetworkConfigurationManager::NetworkSessionRequired) {
-        QSettings settings(QSettings::UserScope, QLatin1String("dc-ui-qt"));
-        settings.beginGroup(QLatin1String("dc-network"));
+        QSettings settings;
+        settings.beginGroup(QLatin1String("net"));
         const QString id = settings.value(QLatin1String("DefaultNetworkConfiguration")).toString();
         settings.endGroup();
 
@@ -47,8 +47,7 @@ int main(int argc, char *argv[])
                 id = config.identifier();
             }
 
-            QSettings settings(QSettings::UserScope, QLatin1String("dc-ui-qt"));
-            settings.beginGroup(QLatin1String("dc-network"));
+            settings.beginGroup(QLatin1String("net"));
             settings.setValue(QLatin1String("DefaultNetworkConfiguration"), id);
             settings.endGroup();
         }

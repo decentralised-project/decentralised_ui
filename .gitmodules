@@ -1,3 +1,9 @@
 [submodule "dependencies/decentralised_p2p"]
 	path = dependencies/decentralised_p2p
 	url = https://github.com/decentralised-project/decentralised_p2p
+[submodule "dependencies/decentralised_crypt"]
+	path = dependencies/decentralised_crypt
+	url = https://decentralised-project@github.com/decentralised-project/decentralised_crypt
+[submodule "dependencies/decentralised_data"]
+	path = dependencies/decentralised_data
+	url = https://decentralised-project@github.com/decentralised-project/decentralised_data.git

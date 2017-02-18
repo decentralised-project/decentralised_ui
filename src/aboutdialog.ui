@@ -72,10 +72,11 @@
      <weight>50</weight>
      <italic>false</italic>
      <bold>false</bold>
+     <stylestrategy>PreferAntialias</stylestrategy>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true">color:#404040;</string>
    </property>
    <property name="text">
     <string>Decentralised Core</string>
@@ -107,6 +108,9 @@
      <family>MS Shell Dlg 2</family>
      <pointsize>8</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:#404040;</string>
    </property>
    <property name="text">
     <string>Version 1.0.0</string>
