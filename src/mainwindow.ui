@@ -16,6 +16,12 @@
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
+  <property name="font">
+   <font>
+    <family>DejaVu Sans</family>
+    <pointsize>9</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Decentralised</string>
   </property>
@@ -115,6 +121,12 @@
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
+                <property name="font">
+                 <font>
+                  <family>DejaVu Sans</family>
+                  <pointsize>9</pointsize>
+                 </font>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">background-color:white;
 p
@@ -187,7 +199,7 @@ p
      <x>0</x>
      <y>0</y>
      <width>609</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

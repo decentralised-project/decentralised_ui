@@ -10,6 +10,12 @@
     <height>382</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>DejaVu Sans</family>
+    <pointsize>9</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Preferences</string>
   </property>
@@ -31,8 +37,14 @@
            <x>10</x>
            <y>50</y>
            <width>391</width>
-           <height>16</height>
+           <height>31</height>
           </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>DejaVu Sans</family>
+           <pointsize>9</pointsize>
+          </font>
          </property>
          <property name="styleSheet">
           <string notr="true">color:#606060;</string>
@@ -40,12 +52,15 @@
          <property name="text">
           <string>The data folder will get big, so use a drive with plenty of free space.</string>
          </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
         </widget>
         <widget class="QLabel" name="label_4">
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>80</y>
+           <y>100</y>
            <width>161</width>
            <height>16</height>
           </rect>
@@ -58,7 +73,7 @@
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>100</y>
+           <y>120</y>
            <width>201</width>
            <height>22</height>
           </rect>
