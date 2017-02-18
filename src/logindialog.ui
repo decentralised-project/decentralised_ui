@@ -12,8 +12,8 @@
   </property>
   <property name="font">
    <font>
-    <family>DejaVu Sans</family>
-    <pointsize>9</pointsize>
+    <family>MS Shell Dlg 2</family>
+    <pointsize>8</pointsize>
    </font>
   </property>
   <property name="windowTitle">
@@ -43,6 +43,12 @@
      <width>71</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>MS Shell Dlg 2</family>
+     <pointsize>8</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>Select User</string>
@@ -98,8 +104,8 @@
    </property>
    <property name="font">
     <font>
-     <family>DejaVu Sans</family>
-     <pointsize>9</pointsize>
+     <family>MS Shell Dlg 2</family>
+     <pointsize>8</pointsize>
     </font>
    </property>
    <property name="text">

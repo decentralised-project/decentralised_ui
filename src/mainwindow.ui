@@ -18,8 +18,8 @@
   </property>
   <property name="font">
    <font>
-    <family>DejaVu Sans</family>
-    <pointsize>9</pointsize>
+    <family>MS Shell Dlg 2</family>
+    <pointsize>8</pointsize>
    </font>
   </property>
   <property name="windowTitle">
@@ -57,6 +57,12 @@
     </property>
     <item row="0" column="0">
      <widget class="QTabWidget" name="tabWidget">
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
       <widget class="QWidget" name="tabTerminal">
        <attribute name="title">
         <string>Terminal</string>
@@ -123,8 +129,9 @@
                 </property>
                 <property name="font">
                  <font>
-                  <family>DejaVu Sans</family>
-                  <pointsize>9</pointsize>
+                  <family>MS Shell Dlg 2</family>
+                  <pointsize>8</pointsize>
+                  <stylestrategy>PreferAntialias</stylestrategy>
                  </font>
                 </property>
                 <property name="styleSheet">
@@ -160,6 +167,12 @@ p
                   <horstretch>1</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>MS Shell Dlg 2</family>
+                  <pointsize>8</pointsize>
+                 </font>
                 </property>
                 <property name="focusPolicy">
                  <enum>Qt::NoFocus</enum>
@@ -199,7 +212,7 @@ p
      <x>0</x>
      <y>0</y>
      <width>609</width>
-     <height>22</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

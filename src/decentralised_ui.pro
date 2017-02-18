@@ -13,6 +13,8 @@ win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../dependencies/decentrali
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../dependencies/decentralised_p2p/build-decentralised_p2p-Desktop_Qt_5_8_0_MSVC2013_64bit-Debug/debug/ -ldecentralised_p2p
 else:unix: LIBS += -L$$PWD/../dependencies/decentralised_p2p/build-decentralised_p2p-Desktop-Debug/ -ldecentralised_p2p
 
+win32: DEFINES += WINDOWS
+
 INCLUDEPATH += $$PWD/../dependencies/decentralised_p2p/src
 DEPENDPATH += $$PWD/../dependencies/decentralised_p2p/build-decentralised_p2p-Desktop_Qt_5_8_0_MSVC2013_64bit-Debug/debug
 

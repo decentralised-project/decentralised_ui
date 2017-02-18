@@ -7,8 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>382</width>
-    <height>152</height>
+    <height>150</height>
    </rect>
+  </property>
+  <property name="font">
+   <font>
+    <stylestrategy>PreferAntialias</stylestrategy>
+   </font>
   </property>
   <property name="windowTitle">
    <string>About Decentralised</string>
@@ -37,8 +42,8 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>131</width>
-     <height>131</height>
+     <width>130</width>
+     <height>130</height>
     </rect>
    </property>
    <property name="text">
@@ -62,7 +67,7 @@
    </property>
    <property name="font">
     <font>
-     <family>DejaVu Sans</family>
+     <family>MS Shell Dlg 2</family>
      <pointsize>14</pointsize>
      <weight>50</weight>
      <italic>false</italic>
@@ -99,8 +104,8 @@
    </property>
    <property name="font">
     <font>
-     <family>DejaVu Sans</family>
-     <pointsize>9</pointsize>
+     <family>MS Shell Dlg 2</family>
+     <pointsize>8</pointsize>
     </font>
    </property>
    <property name="text">

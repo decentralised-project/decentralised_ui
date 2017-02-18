@@ -12,8 +12,8 @@
   </property>
   <property name="font">
    <font>
-    <family>DejaVu Sans</family>
-    <pointsize>9</pointsize>
+    <family>MS Shell Dlg 2</family>
+    <pointsize>8</pointsize>
    </font>
   </property>
   <property name="windowTitle">
@@ -35,15 +35,15 @@
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>50</y>
+           <y>55</y>
            <width>391</width>
-           <height>31</height>
+           <height>30</height>
           </rect>
          </property>
          <property name="font">
           <font>
-           <family>DejaVu Sans</family>
-           <pointsize>9</pointsize>
+           <family>MS Shell Dlg 2</family>
+           <pointsize>8</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -51,6 +51,9 @@
          </property>
          <property name="text">
           <string>The data folder will get big, so use a drive with plenty of free space.</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
          </property>
          <property name="wordWrap">
           <bool>true</bool>

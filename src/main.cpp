@@ -13,6 +13,11 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationDomain("decentralised-project.org");
     QCoreApplication::setApplicationName("dc-gui-qt");
 
+#ifndef WINDOWS
+    QFont font("DejaVu Sans [Qt Embedded]", 9, QFont::Normal, false);
+    QApplication::setFont(font);
+#endif
+
     w.show();
 
     QNetworkConfigurationManager manager;
