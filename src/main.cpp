@@ -14,7 +14,11 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationName("dc-gui-qt");
 
 #ifndef WINDOWS
+#ifdef MACOSX
+    QFont font("Helvetica", 180, QFont::Normal, false);
+#else
     QFont font("DejaVu Sans [Qt Embedded]", 9, QFont::Normal, false);
+#endif
     QApplication::setFont(font);
 #endif
 
