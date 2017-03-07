@@ -9,6 +9,7 @@
 #include <logindialog.h>
 #include <aboutdialog.h>
 #include <preferencesdialog.h>
+#include <decentralised_data.h>
 #include <decentralised_p2p.h>
 #include <stdlib.h>
 #include "settings.h"
@@ -54,6 +55,8 @@ private slots:
 
     void on_serverError(QString message);
 
+    void on_dataError(QString message);
+
 private:
 
     void terminalWrite(QString text, QString color);
@@ -62,6 +65,7 @@ private:
     LoginDialog* _login;
     AboutDialog* _about;
     PreferencesDialog* _preferences;
+    decentralised_data* _data;
     decentralised_p2p* _client;
     settings _settings;
 };

@@ -7,6 +7,11 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     _ui->setupUi(this);
 
+    _data = new decentralised_data(0, _settings.getDataDirectory());
+
+    QObject::connect(_data, &decentralised_data::dataError,
+                     this, &MainWindow::on_connectionEstablished);
+
     _client = new decentralised_p2p(0, _settings.getIncomingPort());
 
     QObject::connect(_client, &decentralised_p2p::connectionEstablished,
@@ -27,6 +32,7 @@ MainWindow::~MainWindow()
 {
     delete _ui;
     delete _client;
+    delete _data;
 }
 
 void MainWindow::show()
@@ -42,6 +48,20 @@ void MainWindow::show()
     QMainWindow::show();
 
     terminalWrite(tr("Decentralised Core v1.0.0"), "darkgreen");
+
+    _data->initialize();
+
+    QList<dc_host> hosts = _data->getHosts();
+    if(hosts.size() == 0)
+    {
+        terminalWrite(tr("Can't find any previously connected peers, so trying dns seeds."), NULL);
+
+        // TODO
+    }
+    else
+        terminalWrite(tr("Found %1 previously connected peers to try and reconnect.")
+                      .arg(hosts.size()), NULL);
+
     _client->Start();
 }
 
@@ -110,6 +130,11 @@ void MainWindow::on_serverStarted(int port)
 void MainWindow::on_serverError(QString message)
 {
     terminalWrite(tr("Server error, incoming connections are disabled. %1").arg(message), "darkred");
+}
+
+void MainWindow::on_dataError(QString message)
+{
+    terminalWrite(tr("Data error. %1").arg(message), "darkred");
 }
 
 void MainWindow::terminalWrite(QString text, QString color)

@@ -64,6 +64,12 @@ void settings::loadSettings()
 {
     QSettings settings("Decentralised Project", "dc-gui-qt");
     _dataDirectory = settings.value("data/directory", "data/").toString();
+    if(_dataDirectory == "data/")
+    {
+        QDir dir(".");
+        _dataDirectory = dir.absolutePath().append("/").append(_dataDirectory);
+    }
+
     _language = settings.value("ui/language", "English").toString();
     _incomingPort = settings.value("net/incomingPort", 6453).toInt();
     _windowWidth = settings.value("ui/windowWidth", 0).toInt();
