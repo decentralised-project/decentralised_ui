@@ -57,6 +57,10 @@ private slots:
 
     void on_dataError(QString message);
 
+    void on_dnsSeedReceived(QString ip);
+
+    void on_dnsSeedError(QString message);
+
 private:
 
     void terminalWrite(QString text, QString color);

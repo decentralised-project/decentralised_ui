@@ -26,6 +26,10 @@ MainWindow::MainWindow(QWidget *parent) :
                      this, &MainWindow::on_serverStarted);
     QObject::connect(_client, &decentralised_p2p::serverError,
                      this, &MainWindow::on_serverError);
+    QObject::connect(_client, &decentralised_p2p::dnsSeedReceived,
+                     this, &MainWindow::on_dnsSeedReceived);
+    QObject::connect(_client, &decentralised_p2p::dnsSeedError,
+                     this, &MainWindow::on_dnsSeedError);
 }
 
 MainWindow::~MainWindow()
@@ -55,8 +59,7 @@ void MainWindow::show()
     if(hosts.size() == 0)
     {
         terminalWrite(tr("Can't find any previously connected peers, so trying dns seeds."), NULL);
-
-        // TODO
+        _client->RequestDnsSeeds();
     }
     else
         terminalWrite(tr("Found %1 previously connected peers to try and reconnect.")
@@ -134,7 +137,17 @@ void MainWindow::on_serverError(QString message)
 
 void MainWindow::on_dataError(QString message)
 {
-    terminalWrite(tr("Data error. %1").arg(message), "darkred");
+    terminalWrite(tr("Data error. %1:6453").arg(message), "darkred");
+}
+
+void MainWindow::on_dnsSeedReceived(QString ip)
+{
+    terminalWrite(tr("Trying DNS seed: %1").arg(ip), NULL);
+}
+
+void MainWindow::on_dnsSeedError(QString message)
+{
+    terminalWrite(tr("DNS error. %1").arg(message), "darkred");
 }
 
 void MainWindow::terminalWrite(QString text, QString color)
