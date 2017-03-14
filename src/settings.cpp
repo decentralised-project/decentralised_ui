@@ -60,6 +60,28 @@ void settings::setWindowHeight(int height)
     writeSetting("ui/windowHeight", _windowHeight);
 }
 
+int settings::getMaxIncomingConnections()
+{
+    return _maxIncomingConnections;
+}
+
+void settings::setMaxIncomingConnections(int count)
+{
+    _maxIncomingConnections = count;
+    writeSetting("net/maxIncomingConnections", _maxIncomingConnections);
+}
+
+int settings::getMaxOutgoingConnections()
+{
+    return _maxOutgoingConnections;
+}
+
+void settings::setMaxOutgoingConnections(int count)
+{
+    _maxOutgoingConnections = count;
+    writeSetting("net/maxOutgoingConnections", _maxOutgoingConnections);
+}
+
 void settings::loadSettings()
 {
     QSettings settings("Decentralised Project", "dc-gui-qt");
@@ -72,6 +94,8 @@ void settings::loadSettings()
 
     _language = settings.value("ui/language", "English").toString();
     _incomingPort = settings.value("net/incomingPort", 6453).toInt();
+    _maxIncomingConnections = settings.value("net/maxIncomingConnections", 8).toInt();
+    _maxOutgoingConnections = settings.value("net/maxOutgoingConnections", 8).toInt();
     _windowWidth = settings.value("ui/windowWidth", 0).toInt();
     _windowHeight = settings.value("ui/windowHeight", 0).toInt();
 }

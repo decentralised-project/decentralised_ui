@@ -18,6 +18,12 @@ public:
     int getIncomingPort();
     void setIncomingPort(int port);
 
+    int getMaxIncomingConnections();
+    void setMaxIncomingConnections(int count);
+
+    int getMaxOutgoingConnections();
+    void setMaxOutgoingConnections(int count);
+
     int getWindowWidth();
     void setWindowWidth(int width);
 
@@ -33,6 +39,8 @@ private:
     int _incomingPort;
     int _windowWidth;
     int _windowHeight;
+    int _maxIncomingConnections;
+    int _maxOutgoingConnections;
 };
 
 #endif // SETTINGS_H
