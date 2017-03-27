@@ -7,7 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     _ui->setupUi(this);
 
-    _data = new decentralised_data(0, _settings.getDataDirectory());
+    _data = new decentralised_data();
 
     QObject::connect(_data, &decentralised_data::dataError,
                      this, &MainWindow::on_connectionEstablished);
@@ -53,7 +53,7 @@ void MainWindow::show()
 
     terminalWrite(tr("Decentralised Core v1.0.0"), "darkgreen");
 
-    _data->initialize();
+    _data->initialize(_settings.getDataDirectory());
 
     QList<dc_host> hosts = _data->getHosts();
     if(hosts.size() == 0)
