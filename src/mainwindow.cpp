@@ -6,6 +6,9 @@ MainWindow::MainWindow(QWidget *parent) :
     _ui(new Ui::MainWindow)
 {
     _ui->setupUi(this);
+#ifdef MACOSX
+    _ui->centralWidget->setStyleSheet("font-size:12pt;");
+#endif
 
     _data = new decentralised_data();
 
@@ -22,6 +25,8 @@ MainWindow::MainWindow(QWidget *parent) :
                      this, &MainWindow::on_connectionDropped);
     QObject::connect(_client, &decentralised_p2p::connectionIncoming,
                      this, &MainWindow::on_connectionIncoming);
+    QObject::connect(_client, &decentralised_p2p::connectionOutgoing,
+                     this, &MainWindow::on_connectionOutgoing);
     QObject::connect(_client, &decentralised_p2p::serverStarted,
                      this, &MainWindow::on_serverStarted);
     QObject::connect(_client, &decentralised_p2p::serverError,
@@ -30,6 +35,8 @@ MainWindow::MainWindow(QWidget *parent) :
                      this, &MainWindow::on_dnsSeedReceived);
     QObject::connect(_client, &decentralised_p2p::dnsSeedError,
                      this, &MainWindow::on_dnsSeedError);
+    QObject::connect(_client, &decentralised_p2p::outgoingError,
+                     this, &MainWindow::on_outgoing_error);
 }
 
 MainWindow::~MainWindow()
@@ -119,6 +126,16 @@ void MainWindow::on_connectionDropped()
 
 }
 
+void MainWindow::on_connectionOutgoing()
+{
+    terminalWrite(tr("Outgoing connection established."), "darkgreen");
+}
+
+void MainWindow::on_outgoing_error()
+{
+    terminalWrite(tr("Error connecting to peer."), "darkred");
+}
+
 void MainWindow::on_connectionIncoming()
 {
     terminalWrite(tr("Incoming connection received."), "darkgreen");
@@ -142,7 +159,8 @@ void MainWindow::on_dataError(QString message)
 
 void MainWindow::on_dnsSeedReceived(QString ip)
 {
-    terminalWrite(tr("Trying DNS seed: %1").arg(ip), NULL);
+    terminalWrite(tr("Trying DNS seed at %1").arg(ip), NULL);
+    _client->StartOutgoing(ip, 6453);
 }
 
 void MainWindow::on_dnsSeedError(QString message)

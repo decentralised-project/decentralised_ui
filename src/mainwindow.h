@@ -51,6 +51,10 @@ private slots:
 
     void on_connectionIncoming();
 
+    void on_connectionOutgoing();
+
+    void on_outgoing_error();
+
     void on_serverStarted(int port);
 
     void on_serverError(QString message);
