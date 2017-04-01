@@ -131,9 +131,9 @@ void MainWindow::on_connectionOutgoing()
     terminalWrite(tr("Outgoing connection established."), "darkgreen");
 }
 
-void MainWindow::on_outgoing_error()
+void MainWindow::on_outgoing_error(QString message)
 {
-    terminalWrite(tr("Error connecting to peer."), "darkred");
+    terminalWrite(tr("Error connecting to peer. %1").arg(message), "darkred");
 }
 
 void MainWindow::on_connectionIncoming()
