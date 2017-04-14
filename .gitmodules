@@ -7,3 +7,6 @@
 [submodule "dependencies/decentralised_data"]
 	path = dependencies/decentralised_data
 	url = https://decentralised-project@github.com/decentralised-project/decentralised_data.git
+[submodule "dependencies/openssl"]
+	path = dependencies/openssl
+	url = https://decentralised-project@github.com/decentralised-project/openssl
