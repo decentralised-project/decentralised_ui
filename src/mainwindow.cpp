@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
 #endif
 
     _data = new decentralised_data();
+    //_crypto = new decentralised_crypt();
 
     QObject::connect(_data, &decentralised_data::dataError,
                      this, &MainWindow::on_connectionEstablished);
@@ -136,9 +137,9 @@ void MainWindow::on_outgoing_error(QString message)
     terminalWrite(tr("Error connecting to peer. %1").arg(message), "darkred");
 }
 
-void MainWindow::on_connectionIncoming()
+void MainWindow::on_connectionIncoming(QHostAddress peerAddress)
 {
-    terminalWrite(tr("Incoming connection received."), "darkgreen");
+    terminalWrite(tr("Incoming connection received from %1.").arg(peerAddress.toString()), "darkgreen");
 }
 
 void MainWindow::on_serverStarted(int port)

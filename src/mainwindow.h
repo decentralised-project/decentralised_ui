@@ -11,6 +11,7 @@
 #include <preferencesdialog.h>
 #include <decentralised_data.h>
 #include <decentralised_p2p.h>
+#include <decentralised_crypt.h>
 #include <stdlib.h>
 #include "settings.h"
 
@@ -49,7 +50,7 @@ private slots:
 
     void on_connectionDropped();
 
-    void on_connectionIncoming();
+    void on_connectionIncoming(QHostAddress peerAddress);
 
     void on_connectionOutgoing();
 
@@ -75,6 +76,7 @@ private:
     PreferencesDialog* _preferences;
     decentralised_data* _data;
     decentralised_p2p* _client;
+    decentralised_crypt* _crypto;
     settings _settings;
 };
 
