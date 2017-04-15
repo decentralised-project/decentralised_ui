@@ -19,14 +19,18 @@ This repository is the main UI project, and it's dependencies are git submodules
     https://github.com/decentralised-project/decentralised_ui.git
     
 
-3. Install Perl 5 from https://www.perl.org/get.html
+3. *Windows* Install Perl 5 from https://www.perl.org/get.html
 
 
-4. Build and install /dependencies/openssl as below:
-	* Open a Visual Studio command prompt.
-	* `cd` to the /dependencies/openssl directory.
+4. *Windows* Install NASM assembler from http://www.nasm.us
+
+
+5. Build and install /dependencies/openssl as below:
 	
 ###### Unix/Mac OSX
+
+    * Open a terminal
+    * `cd` to the /dependencies/openssl directory.
     
 ```
     $ ./config
@@ -35,21 +39,24 @@ This repository is the main UI project, and it's dependencies are git submodules
     $ make install
 ```
 ###### Windows
+
+    * Open a Visual Studio command prompt as Administrator. *(Tested on VS2015 x64 Native Tools)*
+    * `cd` to the /dependencies/openssl directory.
     
 ```
-    $ perl Configure { VC-WIN32 | VC-WIN64A | VC-WIN64I | VC-CE }
+    $ perl Configure VC-WIN64A no-shared
     $ nmake
     $ nmake test
     $ nmake install
 ```
 
-5. Open QtCreator, and then the decentralised_ui project, and all the projects in the /dependencies folder.
+6. Open QtCreator, and then the decentralised_ui project, and all the projects in the /dependencies folder.
 
 
-6. Run qmake on all the projects.
+7. Run qmake on all the projects.
 
 
-7. Build all the dependencies projects.
+8. Build all the dependencies projects.
 
 
-8. Build and run the decentralised_ui project.
+9. Build and run the decentralised_ui project.

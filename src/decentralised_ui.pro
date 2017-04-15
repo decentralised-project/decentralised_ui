@@ -9,6 +9,10 @@ QT       += network widgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+win32:CONFIG(release, debug|release): LIBS += -L"C:/Program Files/OpenSSL/lib/" -llibcrypto
+else:win32:CONFIG(debug, debug|release): LIBS += -L"C:/Program Files/OpenSSL/lib/" -llibcrypto
+else:unix: LIBS += -L"/usr/local/lib" -llibcrypto
+
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../dependencies/decentralised_p2p/build-decentralised_p2p-Desktop_Qt_5_8_0_MSVC2013_64bit2-Debug/release/ -ldecentralised_p2p
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../dependencies/decentralised_p2p/build-decentralised_p2p-Desktop_Qt_5_8_0_MSVC2013_64bit2-Debug/debug/ -ldecentralised_p2p
 else:macx: LIBS += -L$$PWD/../dependencies/decentralised_p2p/build-decentralised_p2p-Desktop_Qt_5_8_0_clang_64bit-Debug  -ldecentralised_p2p
@@ -24,6 +28,9 @@ else:unix: LIBS += -L$$PWD/../dependencies/decentralised_data/build-decentralise
 
 win32: DEFINES += WINDOWS
 macx: DEFINES += MACOSX
+
+win32:INCLUDEPATH += "C:/Program Files/OpenSSL/include/"
+else:INCLUDEPATH += "/usr/local/lib"
 
 INCLUDEPATH += $$PWD/../dependencies/decentralised_p2p/src
 DEPENDPATH += $$PWD/../dependencies/decentralised_p2p/build-decentralised_data-Desktop_Qt_5_8_0_MSVC2013_64bit2-Debug/debug
