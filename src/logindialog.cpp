@@ -8,6 +8,10 @@ LoginDialog::LoginDialog(QWidget *parent) :
     this->setWindowFlags(this->windowFlags() & ~Qt::WindowContextHelpButtonHint);
     ui->setupUi(this);
     this->setFixedSize(this->width(), this->height());
+
+#ifdef MACOSX
+    _ui->centralWidget->setStyleSheet("font-size:12pt;");
+#endif
 }
 
 LoginDialog::~LoginDialog()
@@ -17,5 +21,6 @@ LoginDialog::~LoginDialog()
 
 void LoginDialog::on_btnNewUser_clicked()
 {
-
+    _newUser = new NewUserDialog(this);
+    _newUser->show();
 }

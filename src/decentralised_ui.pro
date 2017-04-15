@@ -30,7 +30,7 @@ win32: DEFINES += WINDOWS
 macx: DEFINES += MACOSX
 
 win32:INCLUDEPATH += "C:/Program Files/OpenSSL/include/"
-else:INCLUDEPATH += "/usr/local/lib"
+else:INCLUDEPATH += "/usr/local/include"
 
 INCLUDEPATH += $$PWD/../dependencies/decentralised_p2p/src
 DEPENDPATH += $$PWD/../dependencies/decentralised_p2p/build-decentralised_data-Desktop_Qt_5_8_0_MSVC2013_64bit2-Debug/debug
@@ -61,18 +61,21 @@ SOURCES += main.cpp\
     logindialog.cpp \
     aboutdialog.cpp \
     preferencesdialog.cpp \
-    settings.cpp
+    settings.cpp \
+    newuserdialog.cpp
 
 HEADERS  += mainwindow.h \
     logindialog.h \
     aboutdialog.h \
     preferencesdialog.h \
-    settings.h
+    settings.h \
+    newuserdialog.h
 
 FORMS    += mainwindow.ui \
     logindialog.ui \
     aboutdialog.ui \
-    preferencesdialog.ui
+    preferencesdialog.ui \
+    newuserdialog.ui
 
 RC_FILE = dc.rc
 

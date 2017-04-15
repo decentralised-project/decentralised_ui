@@ -5,7 +5,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     _ui(new Ui::MainWindow)
 {
+    this->setWindowFlags(this->windowFlags() & ~Qt::WindowContextHelpButtonHint);
     _ui->setupUi(this);
+
 #ifdef MACOSX
     _ui->centralWidget->setStyleSheet("font-size:12pt;");
 #endif

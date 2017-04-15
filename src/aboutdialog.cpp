@@ -8,6 +8,10 @@ AboutDialog::AboutDialog(QWidget *parent) :
     this->setWindowFlags(this->windowFlags() & ~Qt::WindowContextHelpButtonHint);
     ui->setupUi(this);
     this->setFixedSize(this->width(), this->height());
+
+#ifdef MACOSX
+    _ui->centralWidget->setStyleSheet("font-size:12pt;");
+#endif
 }
 
 AboutDialog::~AboutDialog()
