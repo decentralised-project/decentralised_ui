@@ -29,7 +29,7 @@ This repository is the main UI project, and it's dependencies are git submodules
 ###### Unix/Mac OSX
     
 ```
-	$ ./config
+    $ ./config
     $ make
     $ make test    
     $ make install
