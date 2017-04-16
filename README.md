@@ -29,8 +29,9 @@ This repository is the main UI project, and it's dependencies are git submodules
 	
 ###### Unix/Mac OSX
 
-    * Open a terminal
-    * `cd` to the /dependencies/openssl directory.
+Open a terminal
+
+`cd` to the /dependencies/openssl directory.
     
 ```
     $ ./config
@@ -40,8 +41,9 @@ This repository is the main UI project, and it's dependencies are git submodules
 ```
 ###### Windows
 
-    * Open a Visual Studio command prompt as Administrator. *(Tested on VS2015 x64 Native Tools)*
-    * `cd` to the /dependencies/openssl directory.
+Open a Visual Studio command prompt as Administrator. *(Tested on VS2013 x64 Native Tools)*
+    
+`cd` to the /dependencies/openssl directory.
     
 ```
     $ perl Configure VC-WIN64A no-shared

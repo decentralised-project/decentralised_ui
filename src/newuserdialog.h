@@ -2,6 +2,7 @@
 #define NEWUSERDIALOG_H
 
 #include <QDialog>
+#include "decentralised_crypt.h"
 
 namespace Ui {
 class NewUserDialog;
@@ -19,6 +20,7 @@ public:
 
 private:
     Ui::NewUserDialog *ui;
+    decentralised_crypt *_crypt;
 };
 
 #endif // NEWUSERDIALOG_H

@@ -11,7 +11,9 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 win32:CONFIG(release, debug|release): LIBS += -L"C:/Program Files/OpenSSL/lib/" -llibcrypto
 else:win32:CONFIG(debug, debug|release): LIBS += -L"C:/Program Files/OpenSSL/lib/" -llibcrypto
-else:unix: LIBS += -L"/usr/local/lib" -llibcrypto
+else:unix: LIBS += -L"/usr/local/lib/" -lcrypto
+
+win32: LIBS += -lgdi32 -lws2_32 -ladvapi32 -lcrypt32 -luser32
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../dependencies/decentralised_p2p/build-decentralised_p2p-Desktop_Qt_5_8_0_MSVC2013_64bit2-Debug/release/ -ldecentralised_p2p
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../dependencies/decentralised_p2p/build-decentralised_p2p-Desktop_Qt_5_8_0_MSVC2013_64bit2-Debug/debug/ -ldecentralised_p2p
