@@ -20,6 +20,8 @@ private slots:
 
     void on_btnNewUser_clicked();
 
+    void on_buttonBox_rejected();
+
 private:
     Ui::LoginDialog *_ui;
     NewUserDialog *_newUser;

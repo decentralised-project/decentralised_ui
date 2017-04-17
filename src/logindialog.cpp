@@ -24,3 +24,8 @@ void LoginDialog::on_btnNewUser_clicked()
     _newUser = new NewUserDialog(this);
     _newUser->show();
 }
+
+void LoginDialog::on_buttonBox_rejected()
+{
+    this->close();
+}

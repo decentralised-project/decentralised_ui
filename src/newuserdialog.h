@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "decentralised_crypt.h"
+#include "dc_user.h"
 
 namespace Ui {
 class NewUserDialog;
@@ -18,9 +19,17 @@ public:
 
     void show();
 
+private slots:
+    void on_txtUsername_textChanged(const QString &arg1);
+
+    void on_buttons_rejected();
+
+    void on_buttons_accepted();
+
 private:
     Ui::NewUserDialog *_ui;
     decentralised_crypt *_crypt;
+    EC_KEY* _keyPair;
 };
 
 #endif // NEWUSERDIALOG_H
