@@ -3,22 +3,18 @@
 
 NewUserDialog::NewUserDialog(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::NewUserDialog)
+    _ui(new Ui::NewUserDialog)
 {
     this->setWindowFlags(this->windowFlags() & ~Qt::WindowContextHelpButtonHint);
-    ui->setupUi(this);
+    _ui->setupUi(this);
     this->setFixedSize(this->width(), this->height());
-
-#ifdef MACOSX
-    _ui->centralWidget->setStyleSheet("font-size:12pt;");
-#endif
 
     _crypt = new decentralised_crypt(this);
 }
 
 NewUserDialog::~NewUserDialog()
 {
-    delete ui;
+    delete _ui;
     delete _crypt;
 }
 

@@ -21,7 +21,7 @@ private slots:
     void on_btnNewUser_clicked();
 
 private:
-    Ui::LoginDialog *ui;
+    Ui::LoginDialog *_ui;
     NewUserDialog *_newUser;
 };
 

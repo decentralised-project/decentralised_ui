@@ -19,7 +19,7 @@ public:
     void show();
 
 private:
-    Ui::NewUserDialog *ui;
+    Ui::NewUserDialog *_ui;
     decentralised_crypt *_crypt;
 };
 

@@ -20,10 +20,6 @@ PreferencesDialog::PreferencesDialog(QWidget *parent) :
     int incomingPort = _settings.getIncomingPort();
     QSpinBox* txtIncomingPort = this->findChild<QSpinBox*>("txtIncomingPort");
     txtIncomingPort->setValue(incomingPort);
-
-#ifdef MACOSX
-    _ui->centralWidget->setStyleSheet("font-size:12pt;");
-#endif
 }
 
 PreferencesDialog::~PreferencesDialog()
