@@ -1,9 +1,10 @@
 #include "logindialog.h"
 #include "ui_logindialog.h"
 
-LoginDialog::LoginDialog(QWidget *parent) :
+LoginDialog::LoginDialog(QString dataDir, QWidget *parent) :
     QDialog(parent),
-    _ui(new Ui::LoginDialog)
+    _ui(new Ui::LoginDialog),
+    _dataDir(dataDir)
 {
     this->setWindowFlags(this->windowFlags() & ~Qt::WindowContextHelpButtonHint);
     _ui->setupUi(this);
@@ -21,7 +22,7 @@ LoginDialog::~LoginDialog()
 
 void LoginDialog::on_btnNewUser_clicked()
 {
-    _newUser = new NewUserDialog(this);
+    _newUser = new NewUserDialog(_dataDir, this);
     _newUser->show();
 }
 

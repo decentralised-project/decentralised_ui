@@ -13,7 +13,7 @@ class LoginDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit LoginDialog(QWidget *parent = 0);
+    explicit LoginDialog(QString dataDir, QWidget *parent = 0);
     ~LoginDialog();
 
 private slots:
@@ -25,6 +25,7 @@ private slots:
 private:
     Ui::LoginDialog *_ui;
     NewUserDialog *_newUser;
+    QString _dataDir;
 };
 
 #endif // LOGINDIALOG_H

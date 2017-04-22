@@ -93,7 +93,7 @@ void MainWindow::on_actionExit_triggered()
 
 void MainWindow::on_actionLogin_triggered()
 {
-    _login = new LoginDialog(this);
+    _login = new LoginDialog(_settings.getDataDirectory(), this);
     _login->show();
 }
 

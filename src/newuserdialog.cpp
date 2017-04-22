@@ -1,9 +1,10 @@
 #include "newuserdialog.h"
 #include "ui_newuserdialog.h"
 
-NewUserDialog::NewUserDialog(QWidget *parent) :
+NewUserDialog::NewUserDialog(QString dataDir, QWidget *parent) :
     QDialog(parent),
-    _ui(new Ui::NewUserDialog)
+    _ui(new Ui::NewUserDialog),
+    _dataDir(dataDir)
 {
     this->setWindowFlags(this->windowFlags() & ~Qt::WindowContextHelpButtonHint);
     _ui->setupUi(this);
@@ -51,5 +52,6 @@ void NewUserDialog::on_buttons_accepted()
 {
     QLineEdit* txtUsername = this->findChild<QLineEdit*>("txtUsername");
     dc_user user(_keyPair, txtUsername->text());
-    user.save("X:/decentralised_ui/", "");
+    user.save(_dataDir, "");
+    this->close();
 }

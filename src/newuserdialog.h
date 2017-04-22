@@ -14,7 +14,7 @@ class NewUserDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit NewUserDialog(QWidget *parent = 0);
+    explicit NewUserDialog(QString dataDir, QWidget *parent = 0);
     ~NewUserDialog();
 
     void show();
@@ -30,6 +30,7 @@ private:
     Ui::NewUserDialog *_ui;
     decentralised_crypt *_crypt;
     EC_KEY* _keyPair;
+    QString _dataDir;
 };
 
 #endif // NEWUSERDIALOG_H
