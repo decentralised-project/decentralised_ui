@@ -2,6 +2,7 @@
 #define NEWUSERDIALOG_H
 
 #include <QDialog>
+#include <QPushButton>
 #include "decentralised_crypt.h"
 #include "dc_user.h"
 

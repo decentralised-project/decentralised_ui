@@ -30,17 +30,20 @@ void NewUserDialog::show()
 
     txtPublicKey->setPlainText(_crypt->to_base58(pub));
 
+    QDialogButtonBox* buttons = this->findChild<QDialogButtonBox*>("buttons");
+    buttons->button(QDialogButtonBox::Ok)->setEnabled(false);
+
     QDialog::show();
 }
 
 void NewUserDialog::on_txtUsername_textChanged(const QString &arg1)
 {
-    QLineEdit* txtUsername = this->findChild<QLineEdit*>("txtUsername");
-    if(txtUsername->text().size() > 0)
-    {
-        QDialogButtonBox* buttons = this->findChild<QDialogButtonBox*>("buttons");
-        buttons->setEnabled(true);
-    }
+    //QLineEdit* txtUsername = this->findChild<QLineEdit*>("txtUsername");
+    QDialogButtonBox* buttons = this->findChild<QDialogButtonBox*>("buttons");
+    if(arg1.size() > 0)
+        buttons->button(QDialogButtonBox::Ok)->setEnabled(true);
+    else
+        buttons->button(QDialogButtonBox::Ok)->setEnabled(false);
 }
 
 void NewUserDialog::on_buttons_rejected()
