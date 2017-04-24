@@ -6,14 +6,18 @@
 #include <QUrl>
 #include <QSettings>
 #include <QTime>
+#include <QTextEdit>
 #include <logindialog.h>
 #include <aboutdialog.h>
 #include <preferencesdialog.h>
 #include <decentralised_data.h>
 #include <decentralised_p2p.h>
 #include <decentralised_crypt.h>
+#include <openssl/ec.h>
+#include <openssl/ecdsa.h>
 #include <stdlib.h>
 #include "settings.h"
+#include "dc_peer.h"
 
 namespace Ui {
 class MainWindow;
@@ -50,7 +54,7 @@ private slots:
 
     void on_connectionDropped();
 
-    void on_connectionIncoming(QHostAddress peerAddress);
+    void on_connectionIncoming(dc_peer *peer);
 
     void on_connectionOutgoing();
 
@@ -77,7 +81,7 @@ private:
     decentralised_data* _data;
     decentralised_p2p* _client;
     decentralised_crypt* _crypto;
-    settings _settings;
+    settings _settings;    
 };
 
 #endif // MAINWINDOW_H

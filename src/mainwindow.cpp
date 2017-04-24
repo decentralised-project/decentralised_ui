@@ -14,11 +14,12 @@ MainWindow::MainWindow(QWidget *parent) :
 
     _data = new decentralised_data(this);
     _crypto = new decentralised_crypt(this);
+    EC_KEY *instanceKey = _crypto->generate_key_pair();
 
     QObject::connect(_data, &decentralised_data::dataError,
                      this, &MainWindow::on_connectionEstablished);
 
-    _client = new decentralised_p2p(this, _settings.getIncomingPort());
+    _client = new decentralised_p2p(instanceKey, this, _settings.getIncomingPort());
 
     QObject::connect(_client, &decentralised_p2p::connectionEstablished,
                      this, &MainWindow::on_connectionEstablished);
@@ -59,9 +60,15 @@ void MainWindow::show()
     QSplitter* splitterMain = this->findChild<QSplitter*>("splitterMain");
     splitterMain->setSizes(QList<int>() << 400 << 100);
 
+    QTextEdit* txtTerminal = this->findChild<QTextEdit*>("txtTerminal");
+    txtTerminal->setWordWrapMode(QTextOption::WrapAnywhere);
+
     QMainWindow::show();
 
     terminalWrite(tr("Decentralised Core v1.0.0"), "darkgreen");
+
+    const EC_POINT* publicKey = _crypto->get_public_key(_client->GetInstanceKey());
+    terminalWrite(tr("Instance key is %1").arg(_crypto->to_base58(publicKey)), NULL);
 
     _data->initialize(_settings.getDataDirectory());
 
@@ -139,9 +146,9 @@ void MainWindow::on_outgoing_error(QString message)
     terminalWrite(tr("Error connecting to peer. %1").arg(message), "darkred");
 }
 
-void MainWindow::on_connectionIncoming(QHostAddress peerAddress)
+void MainWindow::on_connectionIncoming(dc_peer *peer)
 {
-    terminalWrite(tr("Incoming connection received from %1.").arg(peerAddress.toString()), "darkgreen");
+    terminalWrite(tr("Incoming connection received from %1.").arg(peer->GetRemoteAddress().toString()), "darkgreen");
 }
 
 void MainWindow::on_serverStarted(int port)
@@ -178,8 +185,8 @@ void MainWindow::terminalWrite(QString text, QString color)
 
     QString timeStamp = "[" + QTime::currentTime().toString("HH:mm") + "]";
 
-    QLabel* terminal = this->findChild<QLabel*>("txtTerminal");
-    QString existing = terminal->text();
+    QTextEdit* terminal = this->findChild<QTextEdit*>("txtTerminal");
+    QString existing = terminal->toHtml();
     terminal->setText(QString("%1<div style=\"color:%2;margin-bottom:5px;\">%3 %4</div>")
                       .arg(existing, color, timeStamp, text));
 }

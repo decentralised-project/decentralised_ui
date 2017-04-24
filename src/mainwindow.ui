@@ -123,7 +123,7 @@
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
-               <widget class="QLabel" name="txtTerminal">
+               <widget class="QTextEdit" name="txtTerminal">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
                   <horstretch>9</horstretch>
@@ -138,28 +138,16 @@ p
 	padding:0 !important;
 }</string>
                 </property>
+                <property name="frameShape">
+                 <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Plain</enum>
+                </property>
                 <property name="lineWidth">
                  <number>0</number>
                 </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="textFormat">
-                 <enum>Qt::RichText</enum>
-                </property>
-                <property name="scaledContents">
-                 <bool>true</bool>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
-                </property>
-                <property name="wordWrap">
-                 <bool>true</bool>
-                </property>
-                <property name="margin">
-                 <number>5</number>
-                </property>
-                <property name="openExternalLinks">
+                <property name="readOnly">
                  <bool>true</bool>
                 </property>
                </widget>
