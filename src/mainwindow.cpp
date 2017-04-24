@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(_data, &decentralised_data::dataError,
                      this, &MainWindow::on_connectionEstablished);
 
-    _client = new decentralised_p2p(instanceKey, this, _settings.getIncomingPort());
+    _client = new decentralised_p2p(instanceKey, _crypto, this, _settings.getIncomingPort());
 
     QObject::connect(_client, &decentralised_p2p::connectionEstablished,
                      this, &MainWindow::on_connectionEstablished);
