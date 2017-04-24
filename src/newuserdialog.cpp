@@ -38,7 +38,6 @@ void NewUserDialog::show()
 
 void NewUserDialog::on_txtUsername_textChanged(const QString &arg1)
 {
-    //QLineEdit* txtUsername = this->findChild<QLineEdit*>("txtUsername");
     QDialogButtonBox* buttons = this->findChild<QDialogButtonBox*>("buttons");
     if(arg1.size() > 0)
         buttons->button(QDialogButtonBox::Ok)->setEnabled(true);

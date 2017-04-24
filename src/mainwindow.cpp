@@ -12,13 +12,13 @@ MainWindow::MainWindow(QWidget *parent) :
     _ui->centralWidget->setStyleSheet("font-size:12pt;");
 #endif
 
-    _data = new decentralised_data();
-    //_crypto = new decentralised_crypt();
+    _data = new decentralised_data(this);
+    _crypto = new decentralised_crypt(this);
 
     QObject::connect(_data, &decentralised_data::dataError,
                      this, &MainWindow::on_connectionEstablished);
 
-    _client = new decentralised_p2p(0, _settings.getIncomingPort());
+    _client = new decentralised_p2p(this, _settings.getIncomingPort());
 
     QObject::connect(_client, &decentralised_p2p::connectionEstablished,
                      this, &MainWindow::on_connectionEstablished);
@@ -44,9 +44,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
-    delete _ui;
-    delete _client;
-    delete _data;
+//    delete _ui;
+//    delete _client;
+//    delete _data;
 }
 
 void MainWindow::show()
