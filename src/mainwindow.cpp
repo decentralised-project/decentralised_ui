@@ -123,7 +123,7 @@ void MainWindow::on_actionDecentralised_Website_triggered()
 
 void MainWindow::on_dataReceived(QByteArray data)
 {
-
+    terminalWrite(tr("Recieved data: %1").arg(QString(data)), "darkgreen");
 }
 
 void MainWindow::on_connectionEstablished()
