@@ -16,13 +16,11 @@ MainWindow::MainWindow(QWidget *parent) :
     _crypto = new decentralised_crypt(this);
     EC_KEY *instanceKey = _crypto->generate_key_pair();
 
-    QObject::connect(_data, &decentralised_data::dataError,
-                     this, &MainWindow::on_connectionEstablished);
+//    QObject::connect(_data, &decentralised_data::dataError,
+//                     this, &MainWindow::on_connectionEstablished);
 
     _client = new decentralised_p2p(instanceKey, _crypto, this, _settings.getIncomingPort());
 
-    QObject::connect(_client, &decentralised_p2p::connectionEstablished,
-                     this, &MainWindow::on_connectionEstablished);
     QObject::connect(_client, &decentralised_p2p::dataReceived,
                      this, &MainWindow::on_dataReceived);
     QObject::connect(_client, &decentralised_p2p::connectionDropped,
@@ -126,14 +124,14 @@ void MainWindow::on_dataReceived(QByteArray data)
     terminalWrite(tr("Recieved data: %1").arg(QString(data)), "darkgreen");
 }
 
-void MainWindow::on_connectionEstablished()
+void MainWindow::on_connectionDropped(dc_connection_dropped reason)
 {
-
-}
-
-void MainWindow::on_connectionDropped()
-{
-
+    switch(reason)
+    {
+    case dc_connection_dropped::CONNECTED_TO_SELF:
+        terminalWrite(tr("Dropped connection to self."), "darkgreen");
+        break;
+    }
 }
 
 void MainWindow::on_connectionOutgoing()

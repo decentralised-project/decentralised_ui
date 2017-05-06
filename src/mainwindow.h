@@ -50,9 +50,7 @@ private slots:
 
     void on_dataReceived(QByteArray data);
 
-    void on_connectionEstablished();
-
-    void on_connectionDropped();
+    void on_connectionDropped(dc_connection_dropped reason);
 
     void on_connectionIncoming(dc_peer *peer);
 
