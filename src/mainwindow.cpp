@@ -131,6 +131,14 @@ void MainWindow::on_connectionDropped(dc_connection_dropped reason)
     case dc_connection_dropped::CONNECTED_TO_SELF:
         terminalWrite(tr("Dropped connection to self."), "darkgreen");
         break;
+    case dc_connection_dropped::CONNECTION_ERROR:
+        terminalWrite(tr("Dropped connection due to error."), "darkred");
+        // TODO
+        break;
+    case dc_connection_dropped::DISCONNECTED:
+        terminalWrite(tr("Disconnected."), NULL);
+        // TODO
+        break;
     }
 }
 
@@ -192,5 +200,6 @@ void MainWindow::terminalWrite(QString text, QString color)
 void MainWindow::on_txtInput_returnPressed()
 {
     QLineEdit* input = this->findChild<QLineEdit*>("txtInput");
+    _client->Send(input->text().toLocal8Bit());
     input->clear();
 }
